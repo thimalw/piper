@@ -30,10 +30,13 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
 
     $read_from_path = $_FILES['uploadFile']['tmp_name'];
+    $extention = pathinfo($save_to_path, PATHINFO_EXTENSION);
 
-    $compressed_png_content = compress_png($read_from_path);
-    file_put_contents($save_to_path, $compressed_png_content);
-    echo ABS_URL.'/'.$save_to_path;
+    if ($extention == "png") {
+        $compressed_png_content = compress_png($read_from_path);
+        file_put_contents($save_to_path, $compressed_png_content);
+        echo ABS_URL.'/'.$save_to_path;
+    }
 
 } else {
     header('Location: '.ABS_URL);
