@@ -1,5 +1,8 @@
 <?php
 
+define( 'ABS_DIR', dirname(__FILE__) . '/' );
+define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
+
 function compress_png($path_to_png_file, $max_quality = 90)
 {
     if (!file_exists($path_to_png_file)) {
@@ -27,17 +30,11 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
 
     $read_from_path = $_FILES['uploadFile']['tmp_name'];
-    // $save_to_path = "uploads/compressed_file.png";
-
-    var_dump($_FILES);
 
     $compressed_png_content = compress_png($read_from_path);
     file_put_contents($save_to_path, $compressed_png_content);
-    echo '<h2>sucesss</h2> ' . ' <a href="'. $save_to_path .'"> Link </a> ';
+    echo ABS_URL.'/'.$save_to_path;
+
 
 }
 
-
-function GetFileLocation() {
-    return $GLOBALS['$save_to_path'];
-}
