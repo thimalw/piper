@@ -24,11 +24,17 @@ function compress_png($path_to_png_file, $max_quality = 90)
     return $compressed_png_content;
 }
 
-$target_dir = "uploads/";
-$save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 
-$read_from_path = $_FILES['uploadFile']['tmp_name'];
+    $target_dir = "uploads/";
+    $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
 
-$compressed_png_content = compress_png($read_from_path);
-file_put_contents($save_to_path, $compressed_png_content);
-echo ABS_URL.'/'.$save_to_path;
+    $read_from_path = $_FILES['uploadFile']['tmp_name'];
+
+    $compressed_png_content = compress_png($read_from_path);
+    file_put_contents($save_to_path, $compressed_png_content);
+    echo ABS_URL.'/'.$save_to_path;
+
+
+}
+
