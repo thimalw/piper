@@ -31,3 +31,4 @@ var_dump($_FILES);
 
 $compressed_png_content = compress_png($read_from_path);
 file_put_contents($save_to_path, $compressed_png_content);
+echo "<h2>sucesss</h2>";
