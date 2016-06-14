@@ -21,14 +21,23 @@ function compress_png($path_to_png_file, $max_quality = 90)
     return $compressed_png_content;
 }
 
-$target_dir = "uploads/";
-$save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 
-$read_from_path = $_FILES['uploadFile']['tmp_name'];
-// $save_to_path = "uploads/compressed_file.png";
+    $target_dir = "uploads/";
+    $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
 
-var_dump($_FILES);
+    $read_from_path = $_FILES['uploadFile']['tmp_name'];
+    // $save_to_path = "uploads/compressed_file.png";
 
-$compressed_png_content = compress_png($read_from_path);
-file_put_contents($save_to_path, $compressed_png_content);
-echo "<h2>sucesss</h2>";
+    var_dump($_FILES);
+
+    $compressed_png_content = compress_png($read_from_path);
+    file_put_contents($save_to_path, $compressed_png_content);
+    echo '<h2>sucesss</h2> ' . ' <a href="'. $save_to_path .'"> Link </a> ';
+
+}
+
+
+function GetFileLocation() {
+    return $GLOBALS['$save_to_path'];
+}
