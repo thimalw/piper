@@ -1,5 +1,10 @@
 <?php
 
+define( 'SITE_NAME', 'The Piper' );
+define( 'SITE_TITLE', 'Image Compression' );
+define( 'ABS_DIR', dirname(__FILE__) . '/' );
+define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
+
 function compress_png($path_to_png_file, $max_quality = 90)
 {
     if (!file_exists($path_to_png_file)) {
@@ -31,4 +36,4 @@ var_dump($_FILES);
 
 $compressed_png_content = compress_png($read_from_path);
 file_put_contents($save_to_path, $compressed_png_content);
-echo "<h2>sucesss</h2>";
+echo ABS_URL.'/'.$save_to_path;
