@@ -1,5 +1,5 @@
 function CompressData() {
-	$("#compress").submit(function(e){
+	$("#upload-form").submit(function(e){
     	var file_data = $('#uploadFile').prop('files')[0];
 	    var form_data = new FormData();
 	    form_data.append('uploadFile', file_data);
@@ -8,7 +8,7 @@ function CompressData() {
             url: 'compress.php',
             data: form_data,
             processData: false,
-				contentType: false,
+			contentType: false,
             success: function(data) {
                 // $('#response-msgs').html(data);
                 $("#uploadFile").val('');
