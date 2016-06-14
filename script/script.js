@@ -17,5 +17,5 @@ function CompressData() {
             }
         });
         e.preventDefault();
-		});
+	});
 }

@@ -35,6 +35,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     file_put_contents($save_to_path, $compressed_png_content);
     echo ABS_URL.'/'.$save_to_path;
 
-
+} else {
+    header('Location: '.ABS_URL);
+    die();
 }
 
