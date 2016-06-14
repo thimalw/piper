@@ -49,11 +49,11 @@ input[type=submit] {
 	cursor: pointer;
 	/*text-transform: uppercase;*/
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
-	transition: all ease 200ms;
+	transition: background-color ease 200ms, box-shadow ease 200ms;
 }
 input[type=submit]:hover {
 	background-color: #48CEFA;
 	box-shadow: 0 3px 5px 0 rgba(0,0,0,0.3);
 	box-shadow: 0px 8px 15px -10px rgba(0,0,0,1);
-	transition: all ease 200ms;
+	transition: background-color ease 200ms, box-shadow ease 200ms;
 }
