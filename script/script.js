@@ -11,7 +11,7 @@ function CompressData() {
 				contentType: false,
             success: function(data) {
                 // $('#response-msgs').html(data);
-                var uploadedFileBlock = '<div class="uploaded-file-block"> <a href="'+data+'">'+file_data.name+'</a> </div>';
+                var uploadedFileBlock = '<div class="uploaded-file-block"> <a download="'+file_data.name+'" href="'+data+'">'+file_data.name+'</a> </div>';
                 $("#uploaded-files").append(uploadedFileBlock);
             }
         });
