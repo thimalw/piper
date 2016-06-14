@@ -43,7 +43,7 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 
 				</div>
 
-				<form action="compress.php" method="post" enctype="multipart/form-data" id="compress" onsubmit="" >
+				<form action="compress.php" method="post" enctype="multipart/form-data" id="upload-form" onsubmit="" >
 					<label for="uploadFile">Select a PNG file to upload:</label>
 					<input type="file" name="uploadFile" id="uploadFile">
 					<input type="submit" value="Upload" name="submit" onclick="CompressData()">
