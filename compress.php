@@ -1,7 +1,5 @@
 <?php
 
-define( 'SITE_NAME', 'The Piper' );
-define( 'SITE_TITLE', 'Image Compression' );
 define( 'ABS_DIR', dirname(__FILE__) . '/' );
 define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 
@@ -30,9 +28,6 @@ $target_dir = "uploads/";
 $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
 
 $read_from_path = $_FILES['uploadFile']['tmp_name'];
-// $save_to_path = "uploads/compressed_file.png";
-
-var_dump($_FILES);
 
 $compressed_png_content = compress_png($read_from_path);
 file_put_contents($save_to_path, $compressed_png_content);

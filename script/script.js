@@ -10,7 +10,9 @@ function CompressData() {
             processData: false,
 				contentType: false,
             success: function(data) {
-                $('#response-msgs').html(data);
+                // $('#response-msgs').html(data);
+                var uploadedFileBlock = '<div class="uploaded-file-block"> <a href="'+data+'">'+file_data.name+'</a> </div>';
+                $("#uploaded-files").append(uploadedFileBlock);
             }
         });
         e.preventDefault();

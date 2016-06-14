@@ -30,7 +30,19 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 		</header>
 		<div class="site-body">
 
-			<div class="container">			
+			<div class="container">
+
+				<div class="uploaded-files" id="uploaded-files">
+					
+					<!-- <div class="uploaded-file-block">
+						<a href="#">file_name.png</a>
+					</div>
+					<div class="uploaded-file-block">
+						<a href="#">file_name.png</a>
+					</div> -->
+
+				</div>
+
 				<form action="compress.php" method="post" enctype="multipart/form-data" id="compress" onsubmit="" >
 					<label for="uploadFile">Select a PNG file to upload:</label>
 					<input type="file" name="uploadFile" id="uploadFile">
