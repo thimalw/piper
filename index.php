@@ -31,7 +31,7 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 		<div class="site-body">
 
 			<div class="container">
-
+				<div class ="response-msgs" id="response-msgs"> </div>
 				<div class="uploaded-files" id="uploaded-files">
 					
 					<!-- <div class="uploaded-file-block">
