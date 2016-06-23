@@ -39,7 +39,7 @@ if ( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X
         file_put_contents($save_to_path, $compressed_png_content);
 
         // echo the uploaded file URL
-        //echo ABS_URL.'/'.$save_to_path;
+        echo ABS_URL.'/'.$save_to_path;
     }
 
     else if($extention == "zip") {

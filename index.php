@@ -29,8 +29,13 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 			</div>
 		</header>
 		<div class="site-body">
-
 			<div class="container">
+				<form action="compress.php" method="post" enctype="multipart/form-data" id="upload-form" onsubmit="" >
+					<label for="uploadFile">Select a PNG file to upload:</label>
+					<input type="file" name="uploadFile" id="uploadFile">
+					<input type="submit" value="Upload" name="submit" onclick="CompressData()">
+				</form>
+
 				<div class ="response-msgs" id="response-msgs"> </div>
 				<div class="uploaded-files" id="uploaded-files">
 					
@@ -42,12 +47,6 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 					</div> -->
 
 				</div>
-
-				<form action="compress.php" method="post" enctype="multipart/form-data" id="upload-form" onsubmit="" >
-					<label for="uploadFile">Select a PNG file to upload:</label>
-					<input type="file" name="uploadFile" id="uploadFile">
-					<input type="submit" value="Upload" name="submit" onclick="CompressData()">
-				</form>
 			</div>
 			<div class="response-msgs" id="response-msgs"></div>
 		</div>
