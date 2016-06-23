@@ -1,10 +1,14 @@
 <?php
-include("functions.php");
+
 define( 'ABS_DIR', dirname(__FILE__) . '/' );
 define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 
-function compress_png( $path_to_png_file, $max_quality = 90 )
-{
+include("functions.php");
+
+/**
+ * Pngquant compress
+ */
+function compress_png( $path_to_png_file, $max_quality = 90 ) {
     if (!file_exists( $path_to_png_file ) ) {
         throw new Exception( "File does not exist: $path_to_png_file" );
     }
@@ -25,27 +29,28 @@ function compress_png( $path_to_png_file, $max_quality = 90 )
 }
 
 if ( !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' ) {
-    $target_dir = "uploads/";
-    $save_to_path = $target_dir . basename($_FILES["uploadFile"]["name"]);
-    $name = basename($_FILES["uploadFile"]["name"]);
 
-    $read_from_path = $_FILES['uploadFile']['tmp_name'];
-    $extention = pathinfo($save_to_path, PATHINFO_EXTENSION);
+    // if (isset($_FILES['files'][1])) {
+        // loop through each uploaded file
 
-    //echo "Read from path : $save_to_path";
+    $files = reArrayFiles($_FILES['files']);
 
-    if ($extention == "png") {
-        $compressed_png_content = compress_png($read_from_path);
-        file_put_contents($save_to_path, $compressed_png_content);
+    $respondArray = array();
 
-        // echo the uploaded file URL
-        echo ABS_URL.'/'.$save_to_path;
+    foreach ($files as $file) {
+        $upload_results = processUpload($file);
+        if (!empty($upload_results)) {
+            array_push($respondArray, $upload_results);
+        }
     }
 
-    else if($extention == "zip") {
-        //echo "zip file  $read_from_path <br/>";
-        extract_from_zip($read_from_path, $name);
-    }
+    echo json_encode($respondArray);
+
+    // } else {        
+    //     echo json_encode(['itsalooop'=>'nuuu']);
+    //     processUpload($_FILES['files']);
+    // }    
+    
 
 } else {
     header('Location: '.ABS_URL);
