@@ -57,12 +57,12 @@ define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
 				<div class ="response-msgs" id="response-msgs"> </div>
 				<div class="uploaded-files" id="uploaded-files">
 					
-					<div class="uploaded-file-block">
+					<!-- <div class="uploaded-file-block">
 						<a href="#">file_name.png</a>
 					</div>
 					<div class="uploaded-file-block">
 						<a href="#">file_name.png</a>
-					</div>
+					</div> -->
 
 				</div>
 			</div>
