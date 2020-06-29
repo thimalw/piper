@@ -1,7 +1,7 @@
 <?php
 
 define( 'ABS_DIR', dirname(__FILE__) . '/' );
-define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
+define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] );
 
 include("functions.php");
 

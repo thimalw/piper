@@ -3,7 +3,7 @@
 define( 'SITE_NAME', 'The Piper' );
 define( 'SITE_TITLE', 'Image Compression' );
 define( 'ABS_DIR', dirname(__FILE__) . '/' );
-define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/piper' );
+define( 'ABS_URL', 'http://' . $_SERVER['HTTP_HOST'] );
 
 ?>
 <!DOCTYPE html>
